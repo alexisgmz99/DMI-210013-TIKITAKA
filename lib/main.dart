@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart'; // No olvides importar Provider
 import 'package:toktik_210373/config/theme/app_theme.dart';
 import 'package:toktik_210373/presentation/provider/discover_provider.dart';
 import 'package:toktik_210373/presentation/screens/discover/discover_screen.dart';
@@ -12,14 +13,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifier( create: (_) => DiscoverProvider());
+        ChangeNotifierProvider(create: (_) => DiscoverProvider()),
       ],
       child: MaterialApp(
         title: 'TokTik',
         debugShowCheckedModeBanner: false,
         theme: AppTheme().getTheme(),
-        home: const DiscoverScreen()
-      )
+        home: const DiscoverScreen(),
+      ),
     );
   }
 }
